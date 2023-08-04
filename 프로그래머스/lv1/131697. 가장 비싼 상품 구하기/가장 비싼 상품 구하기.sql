@@ -1,0 +1,5 @@
+-- 코드를 입력하세요
+SELECT PRICE
+FROM PRODUCT 
+WHERE PRICE = (SELECT MAX(B.PRICE)
+               FROM PRODUCT B)
