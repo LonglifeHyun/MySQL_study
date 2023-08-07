@@ -2,8 +2,11 @@
 SELECT CAR_TYPE, COUNT(*) AS CARS
 FROM CAR_RENTAL_COMPANY_CAR 
 WHERE 1=1
-AND (OPTIONS LIKE '%통풍시트%' 
-    OR OPTIONS LIKE '%열선시트%' 
-    OR OPTIONS LIKE '%가죽시트%' )
+# AND (OPTIONS LIKE '%통풍시트%' 
+#     OR OPTIONS LIKE '%열선시트%' 
+#     OR OPTIONS LIKE '%가죽시트%' )
+AND ( LOCATE('통풍시트',OPTIONS) > 0 
+    OR LOCATE('열선시트',OPTIONS) > 0 
+    OR LOCATE('가죽시트',OPTIONS) > 0 )    
 GROUP BY CAR_TYPE
 ORDER BY CAR_TYPE
