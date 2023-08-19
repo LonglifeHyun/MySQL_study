@@ -1,0 +1,10 @@
+-- 코드를 입력하세요
+SELECT B.CART_ID 
+FROM CART_PRODUCTS B
+WHERE 1=1
+AND B.NAME = 'Milk'
+AND EXISTS (SELECT *
+             FROM CART_PRODUCTS A
+             WHERE A.CART_ID = B.CART_ID
+             AND A.NAME = 'Yogurt')
+ORDER BY B.CART_ID 
